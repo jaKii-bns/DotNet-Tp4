@@ -1,0 +1,54 @@
+﻿@page
+@model DOTNET_DEMO.Produit.EditModel
+@{
+	ViewData["Title"] = "Modification d'un produit";
+}
+
+
+<div class="text-center">
+	<h1>Modifier un produit</h1>
+	<hr />
+</div>
+
+
+@if (Model.messageErreur.Length > 0)
+{
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		<small>@Model.messageErreur</small>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+}
+
+<form method="post">
+	<input type="hidden" name="id" value="@Model.produit._id" />
+	<div class="row mb-2">
+		<label class="col-sm-3 col-form-labek">Nom</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="nom" value="@Model.produit._nom" />
+		</div>
+	</div>
+
+	<div class="row mb-2">
+		<label class="col-sm-3 col-form-labek">Description</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="description" value="@Model.produit._description" />
+		</div>
+	</div>
+
+	<div class="row mb-4">
+		<label class="col-sm-3 col-form-labek">Prix</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" name="prix" value="@Model.produit._prix" />
+		</div>
+	</div>
+
+	<div class="row mb-2">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Modifier</button>
+		</div>
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-outline-primary" href="/Produit/Index" role="button">Annuler</a>
+		</div>
+	</div>
+
+</form>

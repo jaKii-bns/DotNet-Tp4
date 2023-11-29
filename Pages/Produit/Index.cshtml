@@ -1,0 +1,37 @@
+﻿@page
+@model DOTNET_DEMO.Produit.IndexModel
+@{
+	ViewData["Title"] = "Produits";
+}
+
+<br />
+<h2 class="text-center">Liste des produits</h2>
+<a class="btn btn-primary btn-sm" asp-page="/Produit/Create">Nouveau Produit</a>
+
+<br />
+<table class="table">
+	<thead>
+		<tr class="text-center">
+			<th>Matricule</th>
+			<th>Nom du produit</th>
+			<th>Description</th>
+			<th>Prix</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.ProduitList) //Chaque objet vas s'afficher sous forme d'une ligne dans le tableau
+		{
+			<tr> 
+				<td>@item._id</td>
+				<td>@item._nom</td>
+				<td>@item._description</td>
+				<td>@item._prix</td>
+				<td class="text-center">
+					<a class="btn btn-success btn-sm" href="/Produit/Edit?id=@item._id">Modifier</a>
+					<a class="btn btn-danger btn-sm" href="/Produit/Delete?id=@item._id">Supprimer</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
