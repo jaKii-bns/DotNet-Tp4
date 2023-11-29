@@ -13,7 +13,7 @@ namespace DOTNET_DEMO.Produit
         {
             try
             {
-                string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=Demo;Integrated Security=True;Column Encryption Setting=enabled; Encrypt=False";
+                string connectionString = "Data Source=.;Initial Catalog=TestDemo;Integrated Security=True;Column Encryption Setting=enabled; Encrypt=False";
                 
                 using (SqlConnection connection = new SqlConnection(connectionString)) //Création de la connection
                 {
